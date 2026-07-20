@@ -18,6 +18,6 @@ class Database:
         try:
             with open(self.filename, "r", encoding="utf-8") as f:
                 lista = json.load(f)
-                return {item["id"]: Equipamento.para_dicionario(item) for item in lista}
+                return {item["id"]: Equipamento.from_dict(item) for item in lista}
         except (FileNotFoundError, json.JSONDecodeError):
             return {}
